@@ -1,2 +1,3 @@
-# ShootyBorbVR
- VR Shooter
+# ShootyBorbVR	
+ VR Shooter Game
+
