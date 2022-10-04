@@ -211,14 +211,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletCount: 15
-  bulletSpeed: 100
+  bulletSpeed: 5
   bulletDamage: 1
-  firingSpeed: 1
+  firingSpeed: 0.3
   shotsPerFire: 1
   bulletSpawn: {fileID: 4378672170000421868}
-  projectile: {fileID: 7326796078752219282, guid: 824a2d7cbf4db4a4d9d1b6913e574fdf, type: 3}
+  projectile: {fileID: 9090439589295370485, guid: 824a2d7cbf4db4a4d9d1b6913e574fdf, type: 3}
   playerInputHandler: {fileID: 0}
   controller: {fileID: 0}
+  target: {fileID: 2181513275305824303, guid: fece5eb6b23a7584aa2ae1555b95f052, type: 3}
+  targetCamera: {fileID: 0}
 --- !u!1 &4378672170000421868
 GameObject:
   m_ObjectHideFlags: 0
