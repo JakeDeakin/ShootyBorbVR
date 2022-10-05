@@ -3,12 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
-<<<<<<< HEAD
 using TMPro;
-=======
 using Unity.Mathematics;
 using UnityEngine.InputSystem.XR;
->>>>>>> main
 
 public class WeaponController : MonoBehaviour
 {
@@ -26,18 +23,19 @@ public class WeaponController : MonoBehaviour
     public AudioClip noAmmo;
 
     public GameObject bulletSpawn;
-    public Rigidbody projectile;
+    public Rigidbody rbProjectile;
+    public GameObject goProjectile;
 
     public PlayerInputHandler playerInputHandler;
     public ActionBasedController controller;
 
-<<<<<<< HEAD
+
     public float shotTime;
     TextMeshProUGUI ammoText;
-=======
+
     public PlayerCharacterController target;
     public Camera targetCamera;
->>>>>>> main
+
 
     RaycastHit hit;
 
@@ -48,18 +46,18 @@ public class WeaponController : MonoBehaviour
         targetCamera = target.GetComponentInChildren<Camera>();
         playerInputHandler = GetComponentInParent<PlayerInputHandler>();
         controller = GetComponentInParent<ActionBasedController>();
-<<<<<<< HEAD
+
         shotsLeft = shotsPerFire;
         shotTime = Time.time;
         ammoText = GetComponentInChildren<TextMeshProUGUI>();
         ammoText.text = currentBulletCount.ToString();
-=======
+
 
         if (playerInputHandler == null)
         {
             InvokeRepeating(nameof(EnemyFire), 1f, 1/firingSpeed);
         }
->>>>>>> main
+
     }
 
     // Update is called once per frame
@@ -127,13 +125,13 @@ public class WeaponController : MonoBehaviour
         {
             print(hit.collider.name);
             Debug.DrawLine(bulletSpawn.transform.position, hit.point, Color.yellow, 100);
-            GameObject line = Instantiate(projectile);
+            GameObject line = Instantiate(goProjectile);
             line.GetComponent<LineRenderer>().SetPositions(new Vector3[] { bulletSpawn.transform.position, hit.point });
             Destroy(line, 0.2f);
         }
     }
 
-<<<<<<< HEAD
+
     public bool CanFire()
     {
         if (HasAmmo() && HasShotsLeft())
@@ -178,10 +176,10 @@ public class WeaponController : MonoBehaviour
             ammoText.text = currentBulletCount.ToString();
             print("Reload");
     }
-=======
+
     public void EnemyFire()
     {
-        var instance = Instantiate(projectile, bulletSpawn.transform.position, quaternion.identity);
+        var instance = Instantiate(rbProjectile, bulletSpawn.transform.position, quaternion.identity);
         if (InterceptionDirection(targetCamera.transform.position, transform.position, new Vector3(0,0,target.PlayerMovementSpeed), bulletSpeed, out var direction))
         {
             print("Did this work?");
@@ -231,5 +229,5 @@ public class WeaponController : MonoBehaviour
         return discriminant > 0 ? 2 : 1;
     }
 
->>>>>>> main
+
 }
