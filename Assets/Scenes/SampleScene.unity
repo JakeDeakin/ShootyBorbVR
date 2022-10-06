@@ -130,70 +130,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 344839801749241714, guid: fece5eb6b23a7584aa2ae1555b95f052, type: 3}
-      propertyPath: m_VerticalAlignment
-      value: 512
-      objectReference: {fileID: 0}
-    - target: {fileID: 344839801749241714, guid: fece5eb6b23a7584aa2ae1555b95f052, type: 3}
-      propertyPath: m_HorizontalAlignment
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1490847977627827426, guid: fece5eb6b23a7584aa2ae1555b95f052, type: 3}
-      propertyPath: shotsLeft
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1490847977627827426, guid: fece5eb6b23a7584aa2ae1555b95f052, type: 3}
-      propertyPath: firingSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1490847977627827426, guid: fece5eb6b23a7584aa2ae1555b95f052, type: 3}
-      propertyPath: weaponRange
-      value: 10000
-      objectReference: {fileID: 0}
-    - target: {fileID: 1490847977627827426, guid: fece5eb6b23a7584aa2ae1555b95f052, type: 3}
-      propertyPath: goProjectile
-      value: 
-      objectReference: {fileID: 5454723874627715646, guid: e3926797a74bc2747a98a47485ee3903, type: 3}
-    - target: {fileID: 1490847977627827426, guid: fece5eb6b23a7584aa2ae1555b95f052, type: 3}
-      propertyPath: shotsPerFire
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1490847977627827426, guid: fece5eb6b23a7584aa2ae1555b95f052, type: 3}
-      propertyPath: maxBulletCount
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 1490847977627827426, guid: fece5eb6b23a7584aa2ae1555b95f052, type: 3}
-      propertyPath: currentBulletCount
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 1490847978552222667, guid: fece5eb6b23a7584aa2ae1555b95f052, type: 3}
-      propertyPath: shotsLeft
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1490847978552222667, guid: fece5eb6b23a7584aa2ae1555b95f052, type: 3}
-      propertyPath: firingSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1490847978552222667, guid: fece5eb6b23a7584aa2ae1555b95f052, type: 3}
-      propertyPath: weaponRange
-      value: 10000
-      objectReference: {fileID: 0}
-    - target: {fileID: 1490847978552222667, guid: fece5eb6b23a7584aa2ae1555b95f052, type: 3}
-      propertyPath: goProjectile
-      value: 
-      objectReference: {fileID: 5454723874627715646, guid: e3926797a74bc2747a98a47485ee3903, type: 3}
-    - target: {fileID: 1490847978552222667, guid: fece5eb6b23a7584aa2ae1555b95f052, type: 3}
-      propertyPath: shotsPerFire
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1490847978552222667, guid: fece5eb6b23a7584aa2ae1555b95f052, type: 3}
-      propertyPath: maxBulletCount
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 1490847978552222667, guid: fece5eb6b23a7584aa2ae1555b95f052, type: 3}
-      propertyPath: currentBulletCount
-      value: 15
-      objectReference: {fileID: 0}
     - target: {fileID: 5209459028245217187, guid: fece5eb6b23a7584aa2ae1555b95f052, type: 3}
       propertyPath: m_Name
       value: Player
@@ -240,14 +176,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5209459028245217213, guid: fece5eb6b23a7584aa2ae1555b95f052, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5209459028405702120, guid: fece5eb6b23a7584aa2ae1555b95f052, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5209459029450810812, guid: fece5eb6b23a7584aa2ae1555b95f052, type: 3}
-      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -611,5 +539,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6401505047104291569, guid: f77e98910132a8d46aed78f5d49c82ac, type: 3}
+      propertyPath: bulletSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6401505047104291569, guid: f77e98910132a8d46aed78f5d49c82ac, type: 3}
+      propertyPath: firingSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6401505047104291569, guid: f77e98910132a8d46aed78f5d49c82ac, type: 3}
+      propertyPath: bulletDamage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6401505047104291569, guid: f77e98910132a8d46aed78f5d49c82ac, type: 3}
+      propertyPath: rbProjectile
+      value: 
+      objectReference: {fileID: 9090439589295370485, guid: 824a2d7cbf4db4a4d9d1b6913e574fdf, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f77e98910132a8d46aed78f5d49c82ac, type: 3}

@@ -12,7 +12,6 @@ public class PlayerWeaponController : MonoBehaviour
 {
     public float currentBulletCount;
     public float maxBulletCount;
-    public float bulletSpeed;
     public float bulletDamage;
     public float firingSpeed;
     public int shotsPerFire;
@@ -24,7 +23,6 @@ public class PlayerWeaponController : MonoBehaviour
     public AudioClip noAmmo;
 
     public GameObject bulletSpawn;
-    public Rigidbody rbProjectile;
     public GameObject goProjectile;
 
     public PlayerInputHandler playerInputHandler;
@@ -52,13 +50,6 @@ public class PlayerWeaponController : MonoBehaviour
         shotTime = Time.time;
         ammoText = GetComponentInChildren<TextMeshProUGUI>();
         ammoText.text = currentBulletCount.ToString();
-
-
-        if (playerInputHandler == null)
-        {
-            InvokeRepeating(nameof(EnemyFire), 1f, 1/firingSpeed);
-        }
-
     }
 
     // Update is called once per frame
@@ -176,17 +167,5 @@ public class PlayerWeaponController : MonoBehaviour
             currentBulletCount = maxBulletCount;
             ammoText.text = currentBulletCount.ToString();
             print("Reload");
-    }
-
-    public void EnemyFire()
-    {
-        var instance = Instantiate(rbProjectile, bulletSpawn.transform.position, quaternion.identity);
-        if (Math.InterceptionDirection(targetCamera.transform.position, transform.position, new Vector3(0,0,target.PlayerMovementSpeed), bulletSpeed, out var direction))
-        {
-            print("Did this work?");
-            instance.velocity = direction * bulletSpeed;
-        }
-        else
-            instance.velocity = (targetCamera.transform.position - transform.position).normalized * bulletSpeed;
     }
 }
