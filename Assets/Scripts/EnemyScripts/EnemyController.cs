@@ -1,28 +1,54 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using ShootyBorbVRMath;
 
 public class EnemyController : MonoBehaviour
 {
     public int enemyHealth;
     public int enemyMaxHealth;
-    public WeaponController enemyWeapon;
-    public PlayerCharacterController player;
-
+    public EnemyWeaponController enemyWeapon;
+    public GameObject player;
+    public PlayerCharacterController pController;
+    public Camera playerCamera;
+    private Vector3 predictedPlayerDirection;
     // Start is called before the first frame update
     void Start()
     {
-        player = FindObjectOfType<PlayerCharacterController>();
+        player = GameObject.FindWithTag("Player");
+        playerCamera = player.GetComponentInChildren<Camera>();
+        pController = player.GetComponent<PlayerCharacterController>();
+        enemyWeapon = GetComponentInChildren<EnemyWeaponController>();
+
+        InvokeRepeating(nameof(TryFireWeapon), 1f, 1 / enemyWeapon.firingSpeed);
     }
 
     // Update is called once per frame
     void Update()
     {
-       // FireWeapon();
+      LookAtPlayer();
     }
 
-    void FireWeapon()
+    void LookAtPlayer()
     {
-        enemyWeapon.Fire();
+        transform.LookAt(player.GetComponentInChildren<Camera>().transform);
+    }
+
+    bool CanHitPlayer()
+    {
+        if(Math.InterceptionDirection(playerCamera.transform.position, transform.position, new Vector3(0, 0, pController.PlayerMovementSpeed), enemyWeapon.bulletSpeed, out var direction))
+        {
+            predictedPlayerDirection = direction;
+            return true;
+        }
+        return false;
+    }
+
+
+    void TryFireWeapon()
+    {
+        if (CanHitPlayer())
+        {
+            enemyWeapon.Fire(predictedPlayerDirection);
+        }
+        
     }
 }

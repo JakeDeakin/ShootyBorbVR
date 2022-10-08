@@ -13,34 +13,22 @@ public class EnemyWeaponController : MonoBehaviour
     public GameObject bulletSpawn;
     public Rigidbody rbProjectile;
 
-    public PlayerInputHandler playerInputHandler;
-
-    public PlayerCharacterController target;
-    public Camera targetCamera;
-
     // Start is called before the first frame update
     void Start()
     {
-        target = FindObjectOfType<PlayerCharacterController>();
-        targetCamera = target.GetComponentInChildren<Camera>();
 
-        InvokeRepeating(nameof(EnemyFire), 1f, 1/firingSpeed);
     }
-
+    
     // Update is called once per frame
     void Update()
     {
         
     }
 
-    public void EnemyFire()
+    public void Fire(Vector3 targetDirection)
     {
         var instance = Instantiate(rbProjectile, bulletSpawn.transform.position, quaternion.identity);
-        if (Math.InterceptionDirection(targetCamera.transform.position, transform.position, new Vector3(0,0,target.PlayerMovementSpeed), bulletSpeed, out var direction))
-        {
-            instance.velocity = direction * bulletSpeed;
-        }
-        else
-            instance.velocity = (targetCamera.transform.position - transform.position).normalized * bulletSpeed;
+
+        instance.velocity = targetDirection * bulletSpeed; 
     }
 }

@@ -1,12 +1,6 @@
-using Newtonsoft.Json.Bson;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using TMPro;
-using Unity.Mathematics;
-using UnityEngine.InputSystem.XR;
-using ShootyBorbVRMath;
 
 public class PlayerWeaponController : MonoBehaviour
 {
