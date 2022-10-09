@@ -368,8 +368,6 @@ MonoBehaviour:
   playerInputHandler: {fileID: 0}
   controller: {fileID: 0}
   shotTime: 0
-  target: {fileID: 0}
-  targetCamera: {fileID: 0}
 --- !u!1 &8490818326938326340
 GameObject:
   m_ObjectHideFlags: 0

@@ -26,17 +26,12 @@ public class PlayerWeaponController : MonoBehaviour
     public float shotTime;
     TextMeshProUGUI ammoText;
 
-    public PlayerCharacterController target;
-    public Camera targetCamera;
-
 
     RaycastHit hit;
 
     // Start is called before the first frame update
     void Start()
     {
-        target = FindObjectOfType<PlayerCharacterController>();
-        targetCamera = target.GetComponentInChildren<Camera>();
         playerInputHandler = GetComponentInParent<PlayerInputHandler>();
         controller = GetComponentInParent<ActionBasedController>();
 
@@ -107,7 +102,7 @@ public class PlayerWeaponController : MonoBehaviour
         shotTime = Time.time;
         ammoText.text = currentBulletCount.ToString();
 
-        if (Physics.Raycast(bulletSpawn.transform.position, transform.up * weaponRange, out hit))
+        if (Physics.Raycast(bulletSpawn.transform.position, transform.forward * weaponRange, out hit))
         {
             print(hit.collider.name);
             Debug.DrawLine(bulletSpawn.transform.position, hit.point, Color.yellow, 100);
