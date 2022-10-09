@@ -34,6 +34,11 @@ public class EnemyController : MonoBehaviour
 
     bool CanHitPlayer()
     {
+        if(transform.position.z < playerCamera.transform.position.z)
+        {
+            return false;
+        }
+
         if(Math.InterceptionDirection(playerCamera.transform.position, transform.position, new Vector3(0, 0, pController.PlayerMovementSpeed), enemyWeapon.bulletSpeed, out var direction))
         {
             predictedPlayerDirection = direction;
