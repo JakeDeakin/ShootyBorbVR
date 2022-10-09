@@ -104,8 +104,10 @@ public class PlayerWeaponController : MonoBehaviour
 
         if (Physics.Raycast(bulletSpawn.transform.position, transform.forward * weaponRange, out hit))
         {
-            print(hit.collider.name);
-            Debug.DrawLine(bulletSpawn.transform.position, hit.point, Color.yellow, 100);
+            if (hit.collider.TryGetComponent(out IHitByPlayer hitByPlayer))
+            {
+                hitByPlayer.Hit();
+            }
             GameObject line = Instantiate(goProjectile);
             line.GetComponent<LineRenderer>().SetPositions(new Vector3[] { bulletSpawn.transform.position, hit.point });
             Destroy(line, 0.2f);

@@ -1,7 +1,12 @@
 using UnityEngine;
 using ShootyBorbVRMath;
 
-public class EnemyController : MonoBehaviour
+public interface IHitByPlayer
+{
+    void Hit();
+}
+
+public class EnemyController : MonoBehaviour, IHitByPlayer
 {
     public int enemyHealth;
     public int enemyMaxHealth;
@@ -10,6 +15,8 @@ public class EnemyController : MonoBehaviour
     public PlayerCharacterController pController;
     public Camera playerCamera;
     private Vector3 predictedPlayerDirection;
+    bool hitByPlayer = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -47,7 +54,6 @@ public class EnemyController : MonoBehaviour
         return false;
     }
 
-
     void TryFireWeapon()
     {
         if (CanHitPlayer())
@@ -55,5 +61,21 @@ public class EnemyController : MonoBehaviour
             enemyWeapon.Fire(predictedPlayerDirection);
         }
         
+    }
+    
+    public void Hit()
+    {
+        hitByPlayer = true;
+        enemyHealth--;
+        CheckHealth();
+    }
+
+    private void CheckHealth()
+    {
+        if(enemyHealth <= 0)
+        {
+            this.gameObject.SetActive(false);
+            CancelInvoke();
+        }
     }
 }
